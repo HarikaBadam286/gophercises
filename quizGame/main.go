@@ -72,6 +72,7 @@ func printQuestionsAndTakeAnswers(questions []problem, timeLimit int) {
 		select {
 		case <-testTimer.C:
 			fmt.Println("time is up!")
+			fmt.Printf("\nYou have scored %d out of %d\n", correctAnswers, totalQuestions)
 			return
 		case answer := <-answerCh:
 			if answer == row.answer {
